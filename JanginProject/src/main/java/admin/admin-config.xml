@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+
+		<typeAlias type="manage.ManageVO" alias="managevo" />
+		<typeAlias type="review.ReviewVO" alias="reviewvo" />
+		<typeAlias type="vinfo.VinfoVO" alias="vinfovo" />
+		<typeAlias type="vinfo.ParameterVO" alias="parametervo" />
+		<typeAlias type="preference.PagingVO" alias="pagingvo" />
+		<typeAlias type="preference.PreferenceVO"
+			alias="preferencevo" />
+		<typeAlias type="volunteer.VolunteerVO" alias="volunteervo" />
+		<typeAlias type="center.CenterVO" alias="centervo" />
+		<typeAlias type="admin.AdminVO" alias="adminvo" />
+	</typeAliases>
+
+</configuration>

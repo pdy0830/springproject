@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+
+	<insert id="insert" parameterType="java.util.Map">
+		insert into center(cid, email, nanmmbyNm, nanmmbyNmAdmn, postAdres, telno,
+		mnnstNm)
+		values((select max(cid)+1 from center), #{email}, #{nanmmbyNm}, #{nanmmbyNmAdmn},
+		#{postAdres}, #{telno}, #{mnnstNm})
+	</insert>
+
+	<select id="check" parameterType="java.util.Map"
+		resultType="int">
+		select count(*)
+		from center
+		where postAdres = #{postAdres}
+	</select>
+
+	<insert id="insertVinfo" parameterType="java.util.Map">
+		insert into vinfo(progrmRegistNo, progrmBgnde, actBeginTm, noticeBgnde,
+		noticeEndde, rcritNmpr, appTotal, srvcClCode, progrmSj, progrmCn,
+		actEndTm, actPlace, progrmEndde, actWkdy, postAdres)
+		values(#{progrmRegistNo}, #{progrmBgnde}, #{actBeginTm},
+		#{noticeBgnde}, #{noticeEndde}, #{rcritNmpr}, 0, #{srvcClCode},
+		#{progrmSj}, #{progrmCn}, #{actEndTm}, #{actPlace}, #{progrmEndde},
+		#{actWkdy}, #{postAdres})
+	</insert>
+
+
+	<update id="updateCid" parameterType="java.util.Map">
+		update vinfo
+		set cid = (select cid from center where postAdres = #{postAdres})
+		where postAdres = #{postAdres}
+	</update>
+
+</mapper>
+
+<!-- 값을 넘길때 # 컬럼 넘길때 $ -->
